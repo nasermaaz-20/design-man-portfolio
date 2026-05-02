@@ -8,7 +8,7 @@ export const projects = [
   {
     id: 'EAST',
     title: 'EAST ',
-    category: 'visual identity / UI-UX',
+    category: 'visual identity / Branding ',
     accent: '#00F5D4',
     summary: 'A full branding and packaging project for a motorcycle company focused on performance and bold design.',
     challenge: 'Creating a strong and aggressive brand identity that reflects speed, power, and reliability across both visuals and packaging.',
@@ -20,19 +20,23 @@ export const projects = [
   {
     id: 'TrapNet',
     title: 'TrapNet',
-    category: 'visual identity / UI-UX',
+    category: 'visual identity / UI-UX / Social media Post',
     accent: '#00F5D4',
     summary: 'An AI-powered platform offering image and video generation, code creation, and interactive chat solutions.',
     challenge: 'Creating a unified brand identity for a multi-functional AI platform while keeping the experience simple and user-friendly.',
     solution: 'Developed a clean, modern visual identity that reflects innovation and versatility, with a structured design system that supports multiple AI tools under one cohesive brand.',
     deliverables: ['User interface', 'Logo', 'Social media campaign', 'User experience',],
     link: 'https://www.behance.net/gallery/245872409/TrapNet',
+    links: [
+      { label: 'Social media Post', href: 'https://www.behance.net/gallery/245870803/TrapNet-social-media-posts' },
+      { label: 'view ui/ux', href: 'https://www.behance.net/gallery/245872409/TrapNet' },
+    ],
     image: myProjectImg2,
   },
   {
     id: 'The Royal Camel',
     title: 'The Royal Camel',
-    category: 'Poster design / book design',
+    category: 'magazine design / book design',
     accent: '#00F5D4',
     summary: 'A branding and editorial design project for a premium camel company, including magazine creation.',
     challenge: 'Combining luxury branding with editorial storytelling while maintaining cultural relevance and visual elegance.',
@@ -44,7 +48,7 @@ export const projects = [
   {
     id: 'Happy Bun',
     title: 'Happy Bun',
-    category: 'logo design / visual identity',
+    category: 'visual identity / logo design',
     accent: '#00F5D4',
     summary: 'A visual identity project for a modern, friendly food brand specializing in buns and casual dining.',
     challenge: 'Designing a brand that feels playful and appetizing while remaining memorable and scalable across packaging and marketing materials.',
@@ -65,5 +69,6 @@ export const projects = [
     link: 'https://www.behance.net/gallery/241040849/Veloure',
     image: myProjectImg5,
   },
+  
 
 ];

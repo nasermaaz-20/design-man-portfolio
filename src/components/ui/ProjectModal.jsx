@@ -5,9 +5,11 @@ import ProjectArt from './ProjectArt';
 export default function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
+  const projectLinks = project.links ?? (project.link ? [{ label: 'View Project', href: project.link }] : []);
+
   return (
     <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md" role="dialog" aria-modal="true">
-      <div className="hud-corners relative max-h-[92vh] w-full max-w-5xl overflow-y-auto border border-neon/25 bg-[#06090d] shadow-cyanLg">
+      <div data-lenis-prevent className="hud-corners relative max-h-[92vh] w-full max-w-5xl overscroll-contain overflow-y-auto border border-neon/25 bg-[#06090d] shadow-cyanLg">
         <button
           type="button"
           onClick={onClose}
@@ -40,11 +42,18 @@ export default function ProjectModal({ project, onClose }) {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              {project.link && (
-                <Button as="a" href={project.link} target="_blank" rel="noopener noreferrer">
-                  View Project
+              {projectLinks.map((link, index) => (
+                <Button
+                  key={`${link.label}-${link.href}`}
+                  as="a"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant={index === 0 ? 'primary' : 'secondary'}
+                >
+                  {link.label}
                 </Button>
-              )}
+              ))}
 
             </div>
           </div>

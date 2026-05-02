@@ -9,6 +9,7 @@ export function useLenis() {
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
       smoothWheel: true,
+      prevent: (node) => node.closest('[data-lenis-prevent]'),
     });
 
     let rafId = 0;
@@ -25,4 +26,3 @@ export function useLenis() {
     };
   }, []);
 }
-

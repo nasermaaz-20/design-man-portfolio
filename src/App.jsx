@@ -48,6 +48,21 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [selectedProject]);
+
   return (
     <div className="min-h-screen bg-ink text-white">
       <ScanLines />

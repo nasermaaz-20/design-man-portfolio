@@ -1,7 +1,7 @@
 import { FiArrowRight } from 'react-icons/fi';
 import { cn } from '../../utils/cn';
 
-export default function Button({ children, variant = 'primary', className = '', as = 'button', href, onClick }) {
+export default function Button({ children, variant = 'primary', className = '', as = 'button', href, onClick, ...props }) {
   const Component = as === 'a' ? 'a' : 'button';
   const base =
     'group inline-flex min-h-12 items-center justify-center gap-3 rounded-[5px] px-6 py-3 font-orbitron text-xs font-bold uppercase tracking-[0.14em] transition duration-300 focus:outline-none focus:ring-2 focus:ring-neon/60';
@@ -13,10 +13,9 @@ export default function Button({ children, variant = 'primary', className = '', 
   };
 
   return (
-    <Component href={href} onClick={onClick} className={cn(base, variants[variant], className)}>
+    <Component href={href} onClick={onClick} className={cn(base, variants[variant], className)} {...props}>
       <span>{children}</span>
       {variant === 'primary' && <FiArrowRight className="transition group-hover:translate-x-1" aria-hidden="true" />}
     </Component>
   );
 }
-

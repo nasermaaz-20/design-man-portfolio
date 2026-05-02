@@ -20,8 +20,8 @@ export default function SelectedWork({ onSelectProject }) {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {projects.map((project) => (
-            <button key={project.id} type="button" onClick={() => onSelectProject(project)} className="group text-left">
-              <GlowCard className="h-full p-0">
+            <button key={project.id} type="button" onClick={() => onSelectProject(project)} className="group text-left" >
+              <GlowCard className="h-full p-1">
                 <ProjectArt project={project} />
                 <div className="p-4">
                   <h3 className="font-orbitron text-lg font-bold uppercase text-white transition group-hover:text-neon">{project.title}</h3>
