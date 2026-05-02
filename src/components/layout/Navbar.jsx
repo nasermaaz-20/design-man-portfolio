@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi';
-import brandLogo from '../../assets/images/brand-logo-wide.png';
+import brandLogo from '../../assets/images/optimized/brand-logo-strip.png';
 
 const links = [
   ['Work', 'work'],
@@ -44,7 +44,15 @@ export default function Navbar() {
     <header className={`fixed inset-x-0 top-0 z-50 transition duration-300 ${scrolled || open ? 'border-b border-neon/10 bg-ink/88 backdrop-blur-xl' : 'bg-transparent'}`}>
       <nav className="container-x flex min-h-[74px] items-center justify-between gap-5">
         <a href="#home" className="flex items-center gap-3" aria-label="DESIGN-MAN home">
-          <img src={brandLogo} alt="" className="h-10 w-64 object-cover object-center md:w-72" />
+          <img
+            src={brandLogo}
+            alt=""
+            width="768"
+            height="120"
+            fetchPriority="high"
+            decoding="async"
+            className="h-10 w-64 object-cover object-center md:w-72"
+          />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -91,4 +99,3 @@ export default function Navbar() {
     </header>
   );
 }
-

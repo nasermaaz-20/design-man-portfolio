@@ -2,7 +2,7 @@ import { FiAward, FiClock, FiLayers, FiZap } from 'react-icons/fi';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Button from '../components/ui/Button';
 import SectionLabel from '../components/ui/SectionLabel';
-import portrait from '../assets/images/yaman-portrait.png';
+import portrait from '../assets/images/optimized/yaman-portrait.jpg';
 
 const badges = [
   ['5+', 'Years of Experience', FiAward],
@@ -39,11 +39,18 @@ export default function About() {
           <Button as="a" href="https://www.linkedin.com/in/yaman-balkesh" className="mt-9">More about me</Button>
         </div>
         <div className="hud-corners relative overflow-hidden border border-neon/20 bg-panel/70 p-3 shadow-cyanSm">
-          <img src={portrait} alt="Yaman Balkesh portrait" className="aspect-[1.18/1] w-full object-cover object-center" />
+          <img
+            src={portrait}
+            alt="Yaman Balkesh portrait"
+            width="900"
+            height="758"
+            loading="lazy"
+            decoding="async"
+            className="aspect-[1.18/1] w-full object-cover object-center"
+          />
           <div className="absolute inset-3 border border-neon/10" />
         </div>
       </div>
     </section>
   );
 }
-

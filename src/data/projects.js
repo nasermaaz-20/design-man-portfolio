@@ -1,8 +1,8 @@
-import myProjectImg1 from '../assets/images/1.png';
-import myProjectImg2 from '../assets/images/2.png';
-import myProjectImg3 from '../assets/images/3.png';
-import myProjectImg4 from '../assets/images/4.png';
-import myProjectImg5 from '../assets/images/5.png';
+import myProjectImg1 from '../assets/images/optimized/project-1.jpg';
+import myProjectImg2 from '../assets/images/optimized/project-2.jpg';
+import myProjectImg3 from '../assets/images/optimized/project-3.jpg';
+import myProjectImg4 from '../assets/images/optimized/project-4.jpg';
+import myProjectImg5 from '../assets/images/optimized/project-5.jpg';
 
 export const projects = [
   {
@@ -14,7 +14,7 @@ export const projects = [
     challenge: 'Creating a strong and aggressive brand identity that reflects speed, power, and reliability across both visuals and packaging.',
     solution: 'Built a dynamic identity with bold typography, sharp visual elements, and impactful packaging design that reinforces the brand’s powerful personality.',
     deliverables: ['User interface', 'Logo', 'Social media campaign', 'User experience',],
-    link: 'https://www.behance.net/gallery/237929515/East-Entertiment',
+    link: 'https://www.behance.net/gallery/248596401/EAST-Entertiment',
     image: myProjectImg1,
   },
   {
@@ -67,4 +67,3 @@ export const projects = [
   },
 
 ];
-

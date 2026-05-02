@@ -8,7 +8,15 @@ export default function FinalCTA() {
   return (
     <section className="relative overflow-hidden bg-ink py-20">
       <div ref={ref} className="container-x scroll-reveal hud-corners relative grid items-center gap-8 border border-neon/15 bg-panel/60 p-8 md:grid-cols-[auto_1fr_auto] md:p-10">
-        <img src={mascot} alt="" className="h-24 w-24 rounded-[6px] border border-neon/20 object-cover shadow-cyanSm" />
+        <img
+          src={mascot}
+          alt=""
+          width="230"
+          height="230"
+          loading="lazy"
+          decoding="async"
+          className="h-24 w-24 rounded-[6px] border border-neon/20 object-cover shadow-cyanSm"
+        />
         <h2 className="font-orbitron text-3xl font-black uppercase leading-tight text-white md:text-5xl">
           Let's build something <span className="text-neon">impactful</span> together.
         </h2>

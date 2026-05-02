@@ -1,12 +1,20 @@
-import { FaBehance, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
-import brandLogo from '../../assets/images/brand-logo-wide.png';
+import { FaBehance, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import brandLogo from '../../assets/images/optimized/brand-logo-strip.png';
 
 export default function Footer() {
   return (
     <footer className="border-t border-neon/10 bg-[#050609] py-14">
       <div className="container-x grid gap-10 md:grid-cols-[1.2fr_.8fr_1fr]">
         <div>
-          <img src={brandLogo} alt="DESIGN-MAN" className="h-12 w-72 object-cover object-center" />
+          <img
+            src={brandLogo}
+            alt="DESIGN-MAN"
+            width="768"
+            height="120"
+            loading="lazy"
+            decoding="async"
+            className="h-12 w-72 object-cover object-center"
+          />
           <p className="mt-4 max-w-sm font-mono text-xs uppercase tracking-[0.16em] text-steel/70">
             Visual identities that empower brands.
           </p>
@@ -60,4 +68,3 @@ export default function Footer() {
     </footer>
   );
 }
-

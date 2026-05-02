@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-bg: #05080f;
-  --color-panel: #0d1117;
+  --color-bg: #0f0505;
+  --color-panel: #170f0d;
   --color-panel-dark: #0a0a0a;
   --color-cyan: #00f5d4;
-  --color-cyan-dim: #6ee7e7;
+  --color-cyan-dim: #082347;
   --color-blue-glow: #1fb6ff;
   --glow-cyan: 0 0 12px rgba(0, 245, 212, 0.65), 0 0 36px rgba(0, 245, 212, 0.25);
 }

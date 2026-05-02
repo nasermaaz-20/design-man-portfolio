@@ -4,8 +4,8 @@ import { FiArrowDown, FiBox, FiGrid, FiPenTool } from 'react-icons/fi';
 import { HiOutlineMegaphone } from 'react-icons/hi2';
 import Button from '../components/ui/Button';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import heroBg from '../assets/images/hero-bg.png';
-import heroBgMo from '../assets/images/hero-bg-mo.png';
+import heroBg from '../assets/images/optimized/hero-bg.jpg';
+import heroBgMo from '../assets/images/optimized/hero-bg-mo.jpg';
 
 const services = [
   ['Brand Identity', FiPenTool],
@@ -20,8 +20,18 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-ink pt-24">
       <div className="absolute inset-0">
-        <img src={heroBgMo} alt="" className="block h-full w-full object-cover object-center opacity-90 md:hidden" />
-        <img src={heroBg} alt="" className="hidden h-full w-full object-cover object-center opacity-90 md:block" />
+        <picture>
+          <source media="(min-width: 768px)" srcSet={heroBg} width="1600" height="901" />
+          <img
+            src={heroBgMo}
+            alt=""
+            width="853"
+            height="1844"
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center opacity-90"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/72 to-ink/8" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/20" />
       </div>

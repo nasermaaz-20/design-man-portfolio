@@ -9,11 +9,20 @@ const iconMap = {
   'iphone-campaign': FiSmartphone,
 };
 
-export default function ProjectArt({ project }) {
+export default function ProjectArt({ project, loading = 'lazy', fetchPriority = 'auto' }) {
   if (project.image) {
     return (
       <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#05080f]">
-        <img src={project.image} alt={project.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <img
+          src={project.image}
+          alt={project.title}
+          width="1100"
+          height="825"
+          loading={loading}
+          fetchPriority={fetchPriority}
+          decoding="async"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#05080f] to-transparent" />
         <div className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/90 drop-shadow-md">
           {project.category.split('/')[0].trim()}
@@ -59,4 +68,3 @@ export default function ProjectArt({ project }) {
     </div>
   );
 }
-

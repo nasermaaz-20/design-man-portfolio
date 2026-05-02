@@ -17,7 +17,7 @@ export default function ProjectModal({ project, onClose }) {
           <FiX />
         </button>
         <div className="grid gap-0 md:grid-cols-[1.1fr_.9fr]">
-          <ProjectArt project={project} />
+          <ProjectArt project={project} loading="eager" fetchPriority="high" />
           <div className="p-7 md:p-9">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-neon">{project.category}</p>
             <h3 className="mt-4 font-orbitron text-3xl font-black uppercase text-white md:text-4xl">{project.title}</h3>
@@ -53,4 +53,3 @@ export default function ProjectModal({ project, onClose }) {
     </div>
   );
 }
-
