@@ -49,7 +49,7 @@ The interface reflects the designer's own brand language: neon accents, cyber-in
 
 | Environment | URL |
 |-------------|-----|
-| **Production** | _Add your deployed link here (Vercel / Netlify / GitHub Pages)_ |
+| **Production** | https://design-man.naser-nsrfnz2000.workers.dev/ |
 | **Local** | [http://127.0.0.1:5173](http://127.0.0.1:5173) |
 
 > **Tip:** After deploying, replace the placeholder above with your live URL. Recruiters and clients are far more likely to explore a portfolio with a working demo link.
