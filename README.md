@@ -1,5 +1,7 @@
 # DESIGN-MAN Portfolio
 
+[![Production build](https://github.com/nasermaaz-20/design-man-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/nasermaaz-20/design-man-portfolio/actions/workflows/ci.yml)
+
 > A premium, motion-driven portfolio website for **Yaman Balkesh** — Graphic Designer specializing in brand identity, social media systems, packaging, and advertising campaigns.
 
 **Website development:** [Naser Maaz](https://github.com/nasermaaz-20) — independently implemented the complete website.  
@@ -164,7 +166,7 @@ design-man-portfolio/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) **18+**
+- [Node.js](https://nodejs.org/) **24 LTS** (the version used by CI)
 - npm (comes with Node.js)
 
 ### Installation
@@ -194,6 +196,10 @@ npm run preview
 ```
 
 The optimized output will be in the `dist/` folder.
+
+### Automated build verification
+
+GitHub Actions installs the locked dependencies with `npm ci` and runs `npm run build` on pushes and pull requests to `main`. You can inspect the latest result using the build badge above. This checks production bundling; it does not replace interaction or accessibility tests.
 
 ---
 
