@@ -2,6 +2,11 @@
 
 > A premium, motion-driven portfolio website for **Yaman Balkesh** — Graphic Designer specializing in brand identity, social media systems, packaging, and advertising campaigns.
 
+**Website development:** [Naser Maaz](https://github.com/nasermaaz-20) — independently implemented the complete website.  
+**Portfolio owner & graphic design work:** Yaman Balkesh.
+
+[Live website](https://design-man.naser-nsrfnz2000.workers.dev/) · [Developer portfolio](https://portfolio.nasermaaz20.workers.dev/)
+
 <p align="center">
   <a href="https://www.behance.net/jeffpunky5j"><img src="https://img.shields.io/badge/Behance-1769FF?style=for-the-badge&logo=behance&logoColor=white" alt="Behance" /></a>
   <a href="https://www.linkedin.com/in/yaman-balkesh"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
@@ -52,7 +57,6 @@ The interface reflects the designer's own brand language: neon accents, cyber-in
 | **Production** | https://design-man.naser-nsrfnz2000.workers.dev/ |
 | **Local** | [http://127.0.0.1:5173](http://127.0.0.1:5173) |
 
-> **Tip:** After deploying, replace the placeholder above with your live URL. Recruiters and clients are far more likely to explore a portfolio with a working demo link.
 
 <!-- Uncomment and update after adding a screenshot to /public/preview.png or /docs/preview.png
 <p align="center">
@@ -167,7 +171,7 @@ design-man-portfolio/
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/design-man-portfolio.git
+git clone https://github.com/nasermaaz-20/design-man-portfolio.git
 cd design-man-portfolio
 
 # Install dependencies
@@ -202,13 +206,13 @@ git init
 git add .
 git commit -m "Initial commit: DESIGN-MAN portfolio"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/design-man-portfolio.git
+git remote add origin https://github.com/nasermaaz-20/design-man-portfolio.git
 git push -u origin main
 ```
 
 ### 2. Configure Vite base path
 
-If deploying to `https://YOUR_USERNAME.github.io/design-man-portfolio/`, update `vite.config.js`:
+If deploying to `https://nasermaaz-20.github.io/design-man-portfolio/`, update `vite.config.js`:
 
 ```js
 export default defineConfig({
@@ -275,6 +279,14 @@ Connect your GitHub repo to [Vercel](https://vercel.com) or [Netlify](https://ne
 ---
 
 ## Author & Contact
+
+### Website developer
+
+**[Naser Maaz](https://github.com/nasermaaz-20)** — complete website implementation, including the React interface, responsive layouts, animation integration, and project presentation.
+
+[Developer portfolio](https://portfolio.nasermaaz20.workers.dev/) · [LinkedIn](https://www.linkedin.com/in/naser-maaz)
+
+### Portfolio owner & graphic designer
 
 **Yaman Balkesh** — Graphic Designer
 
