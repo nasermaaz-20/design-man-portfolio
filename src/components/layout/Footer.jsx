@@ -1,11 +1,16 @@
 import { FaBehance, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 import brandLogo from '../../assets/images/optimized/brand-logo-strip.png';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { portfolio } from '../../data/portfolio';
 
 export default function Footer() {
+  const ref = useScrollAnimation();
   return (
-    <footer className="border-t border-neon/10 bg-[#050609] py-14">
+    <footer ref={ref} className="footer-motion relative border-t border-neon/10 bg-[#050609] py-14">
+      <div data-reveal="line" className="footer-rule" aria-hidden="true" />
       <div className="container-x grid gap-10 md:grid-cols-[1.2fr_.8fr_1fr]">
-        <div>
+        <div data-reveal>
           <img
             src={brandLogo}
             alt="DESIGN-MAN"
@@ -19,7 +24,7 @@ export default function Footer() {
             Visual identities that empower brands.
           </p>
         </div>
-        <div>
+        <div data-reveal data-delay="60">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-neon">Navigation</p>
           <div className="mt-4 grid gap-2 font-mono text-xs uppercase tracking-[0.14em] text-steel">
             {['Work', 'Services', 'About', 'Process', 'Contact'].map((link) => (
@@ -27,9 +32,10 @@ export default function Footer() {
                 {link}
               </a>
             ))}
+            <a href={portfolio.href} className="inline-flex items-center gap-2 transition-colors hover:text-neon">Portfolio PDF <FiArrowUpRight aria-hidden="true" /></a>
           </div>
         </div>
-        <div id="contact">
+        <div data-reveal data-delay="120">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-neon">Contact</p>
           <div className="mt-4 space-y-3 font-mono text-sm text-steel">
             <p>
@@ -62,8 +68,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container-x mt-10 border-t border-neon/10 pt-6 font-mono text-xs uppercase tracking-[0.14em] text-steel/45">
-        (c) 2026 DESIGN-MAN. Crafted with precision.
+      <div className="container-x mt-10 flex flex-col gap-3 border-t border-neon/10 pt-6 text-xs text-steel md:flex-row md:items-center md:justify-between">
+        <p className="font-mono uppercase tracking-[0.14em]">(c) 2026 DESIGN-MAN. Crafted with precision.</p>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span>Website developed by</span>
+          <a href="https://nasermaaz.dev" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1.5 text-neon underline-offset-4 transition-colors hover:text-white hover:underline">
+            Naser Maaz <span className="text-steel">· nasermaaz.dev</span><FiArrowUpRight aria-hidden="true" />
+          </a>
+        </p>
       </div>
     </footer>
   );

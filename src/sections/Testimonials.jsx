@@ -9,10 +9,10 @@ export default function Testimonials() {
   return (
     <section className="bg-[#06090d] py-24">
       <div ref={ref} className="container-x scroll-reveal">
-        <SectionLabel>What Clients Say</SectionLabel>
+        <div data-reveal><SectionLabel>What Clients Say</SectionLabel></div>
         <div className="grid gap-5 lg:grid-cols-2">
-          {testimonials.map((item) => (
-            <figure key={item.name} className="hud-corners relative border border-neon/15 bg-panel/70 p-7">
+          {testimonials.map((item, index) => (
+            <figure data-reveal data-delay={index * 90} key={item.name} className="hud-corners relative border border-neon/15 bg-panel/70 p-7">
               <div className="mb-5 flex items-start justify-between">
                 <div className="font-orbitron text-5xl font-black text-neon leading-none">"</div>
                 {item.rating && (

@@ -10,10 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      id="design-fonts"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
       href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800;900&display=swap"
     />
     <title>DESIGN-MAN | Yaman Balkesh</title>
+    <link rel="preload" as="image" href="/src/assets/images/optimized/hero-bg.jpg" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/src/assets/images/optimized/hero-bg-mo.jpg" media="(max-width: 767px)" fetchpriority="high" />
+    <style>
+      html,body{margin:0;background:#05080f;color:#fff}.intro-lock{overflow:hidden}
+      .intro-shell{position:fixed;inset:0;z-index:200;display:grid;place-items:center;isolation:isolate;font-family:monospace}.intro-shell[hidden]{display:none}
+      .intro-panel{position:absolute;inset:0 0 50%;background:#05080f;transform-origin:top;border-bottom:1px solid #00f5d433}.intro-panel-bottom{inset:50% 0 0;transform-origin:bottom;border:0;border-top:1px solid #00f5d433}
+      .intro-content{box-sizing:border-box;position:relative;width:min(76vw,400px);padding:48px 32px;text-align:center}.intro-outline{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#00f5d4;stroke-width:1;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:.65}
+      .intro-logo{position:relative;width:100%;height:auto}.intro-label{position:relative;margin:24px 0 0;color:#b0bec5;font-size:10px;letter-spacing:.2em;text-transform:uppercase}.intro-label::before{content:'';display:inline-block;width:5px;height:5px;margin-right:10px;background:#00f5d4}
+      .intro-skip{position:absolute;right:24px;bottom:24px;min-height:44px;padding:10px 16px;border:1px solid #00f5d44d;background:transparent;color:#b0bec5;font:11px monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.intro-skip:focus-visible{outline:2px solid #00f5d4;outline-offset:4px}
+      .boot-error{max-width:40rem;margin:20vh auto;padding:24px;font:16px/1.7 sans-serif}.boot-error a{color:#00f5d4}
+    </style>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -22,7 +36,68 @@
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
+    <div id="intro-screen" class="intro-shell" hidden aria-label="Preparing the studio">
+      <div class="intro-panel" aria-hidden="true"></div>
+      <div class="intro-panel intro-panel-bottom" aria-hidden="true"></div>
+      <div class="intro-content">
+        <svg class="intro-outline" viewBox="0 0 400 180" preserveAspectRatio="none" aria-hidden="true"><path d="M16 0H384L400 16V164L384 180H16L0 164V16Z" pathLength="1000" /></svg>
+        <img class="intro-logo" src="/src/assets/images/optimized/brand-logo-strip.png" width="768" height="120" alt="DESIGN-MAN" />
+        <p class="intro-label" role="status">Preparing the studio</p>
+      </div>
+      <button id="intro-skip" class="intro-skip" type="button">Skip intro ↗</button>
+    </div>
     <div id="root"></div>
+    <noscript><div class="boot-error">DESIGN-MAN needs JavaScript to show the portfolio. Enable JavaScript and reload, or <a href="https://www.behance.net/jeffpunky5j">view the work on Behance</a>.</div></noscript>
+    <script>
+      (() => {
+        const shell = document.getElementById('intro-screen');
+        const root = document.getElementById('root');
+        const skip = document.getElementById('intro-skip');
+        const preference = matchMedia('(prefers-reduced-motion: reduce)');
+        let seen = false;
+        try { seen = sessionStorage.getItem('design-man:intro:v1') === 'seen'; } catch {}
+        let timeout, exitTimeout, watchdog;
+        const intro = window.__designIntro = {
+          finished: seen || preference.matches || Boolean(location.hash),
+          closing: false,
+          mounted: false,
+          complete() {
+            if (intro.finished) return;
+            intro.finished = true;
+            clearTimeout(timeout); clearTimeout(exitTimeout);
+            const usedSkip = document.activeElement === skip;
+            intro.focusAfterSkip = usedSkip || intro.reason === 'skip';
+            shell.hidden = true;
+            document.documentElement.classList.remove('intro-lock');
+            root.inert = false;
+            try { sessionStorage.setItem('design-man:intro:v1', 'seen'); } catch {}
+            window.dispatchEvent(new Event('design:intro-ready'));
+          },
+          finish(reason) {
+            if (intro.finished || intro.closing) return;
+            intro.closing = true;
+            intro.reason = reason;
+            if (preference.matches) { intro.complete(); return; }
+            window.dispatchEvent(new Event('design:intro-exit'));
+            exitTimeout = setTimeout(() => intro.complete(), 320);
+          },
+          markMounted() { intro.mounted = true; clearTimeout(watchdog); },
+        };
+        if (!intro.finished) {
+          shell.hidden = false;
+          root.inert = true;
+          document.documentElement.classList.add('intro-lock');
+          timeout = setTimeout(() => intro.finish('timeout'), 2500);
+        }
+        skip.addEventListener('click', () => intro.finish('skip'));
+        preference.addEventListener('change', () => { if (preference.matches) intro.complete(); });
+        watchdog = setTimeout(() => {
+          if (intro.mounted) return;
+          intro.complete();
+          if (!root.hasChildNodes()) root.innerHTML = '<div class="boot-error">The portfolio could not load. <a href="">Try again</a> or <a href="https://www.behance.net/jeffpunky5j">view the work on Behance</a>.</div>';
+        }, 8000);
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

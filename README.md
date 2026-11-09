@@ -4,10 +4,10 @@
 
 > A premium, motion-driven portfolio website for **Yaman Balkesh** — Graphic Designer specializing in brand identity, social media systems, packaging, and advertising campaigns.
 
-**Website development:** [Naser Maaz](https://github.com/nasermaaz-20) — independently implemented the complete website.  
+**Website development:** [Naser Maaz](https://nasermaaz.dev) — independently implemented the complete website.
 **Portfolio owner & graphic design work:** Yaman Balkesh.
 
-[Live website](https://design-man.naser-nsrfnz2000.workers.dev/) · [Developer portfolio](https://portfolio.nasermaaz20.workers.dev/)
+[Live website](https://design-man.naser-nsrfnz2000.workers.dev/) · [Developer portfolio](https://nasermaaz.dev)
 
 <p align="center">
   <a href="https://www.behance.net/jeffpunky5j"><img src="https://img.shields.io/badge/Behance-1769FF?style=for-the-badge&logo=behance&logoColor=white" alt="Behance" /></a>
@@ -19,8 +19,7 @@
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19" />
   <img src="https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite 7" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/GSAP-3-88CE02?style=flat-square&logo=greensock&logoColor=white" alt="GSAP" />
-  <img src="https://img.shields.io/badge/Framer_Motion-12-0055FF?style=flat-square&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Anime.js-4-00F5D4?style=flat-square" alt="Anime.js 4" />
   <img src="https://img.shields.io/badge/Lenis-1.3-00F5D4?style=flat-square" alt="Lenis" />
 </p>
 
@@ -46,9 +45,11 @@
 
 ## Overview
 
-**DESIGN-MAN** is a single-page creative portfolio built to present a designer's work with a luxury dark aesthetic, cinematic motion, and a conversion-focused layout. The site combines bold visual storytelling with a clean, professional structure — ideal for attracting clients, showcasing case studies, and standing out in job applications.
+**DESIGN-MAN** is a creative portfolio with a main presentation page and a separate PDF reader at `/portfolio/`. It presents a designer's work with a dark aesthetic, cinematic motion, and a conversion-focused layout.
 
 The interface reflects the designer's own brand language: neon accents, cyber-inspired typography, and high-impact project presentation.
+
+The full 31-page portfolio is available after Selected Work and in the footer. Its web PDF is 48.7% smaller than the original and loads only when opened. See [PDF implementation and verification](docs/portfolio.md) for updating the file, static hosting and test results.
 
 ---
 
@@ -76,7 +77,7 @@ Why this project works well as a **professional portfolio**:
 |------|----------------------|
 | **Visual Identity** | Cohesive dark theme, custom typography (Orbitron, Exo 2, JetBrains Mono), and neon glow system |
 | **Case Study UX** | Interactive project modal with challenge / solution / deliverables structure |
-| **Motion Design** | GSAP scroll animations, Framer Motion micro-interactions, Lenis smooth scrolling |
+| **Motion Design** | Anime.js timelines and scroll-linked motion, CSS interaction feedback, Lenis smooth scrolling |
 | **Performance** | Vite build pipeline, responsive `<picture>` elements, lazy-loaded assets |
 | **Accessibility** | Semantic HTML, ARIA labels on modals and social links, keyboard-friendly navigation |
 | **Business Focus** | Services, process, stats, testimonials, and WhatsApp CTA for lead generation |
@@ -117,7 +118,7 @@ Why this project works well as a **professional portfolio**:
 |----------|-------------|
 | **Core** | React 19, Vite 7, JavaScript (JSX) |
 | **Styling** | Tailwind CSS 3, PostCSS, Autoprefixer, tailwindcss-animate |
-| **Animation** | GSAP 3, @gsap/react, Framer Motion 12, Lenis |
+| **Animation** | Anime.js 4, Lenis, CSS transitions |
 | **Icons** | React Icons |
 | **Routing** | React Router DOM 7 |
 | **Utilities** | clsx |
@@ -290,7 +291,7 @@ Connect your GitHub repo to [Vercel](https://vercel.com) or [Netlify](https://ne
 
 **[Naser Maaz](https://github.com/nasermaaz-20)** — complete website implementation, including the React interface, responsive layouts, animation integration, and project presentation.
 
-[Developer portfolio](https://portfolio.nasermaaz20.workers.dev/) · [LinkedIn](https://www.linkedin.com/in/naser-maaz)
+[Developer portfolio](https://nasermaaz.dev) · [LinkedIn](https://www.linkedin.com/in/naser-maaz)
 
 ### Portfolio owner & graphic designer
 
@@ -307,7 +308,7 @@ Connect your GitHub repo to [Vercel](https://vercel.com) or [Netlify](https://ne
 
 ## License
 
-This project is open for **personal and professional portfolio use**.  
+This project is open for **personal and professional portfolio use**.
 If you fork or republish it, please credit the original author and replace all personal content, images, and branding with your own.
 
 ---
@@ -316,3 +317,17 @@ If you fork or republish it, please credit the original author and replace all p
   <strong>Built with precision. Designed to stand out.</strong><br />
   <sub>DESIGN-MAN © 2026</sub>
 </p>
+
+## Motion implementation
+
+The portfolio uses Anime.js for the opening sequence, section reveals, scroll-linked process rail, counters, mobile navigation, and project image transitions. The first-visit intro supports skip, a bounded timeout, session memory, and reduced motion. Project dialogs support Escape, focus trapping, and return focus.
+
+Planning and verification: [Motion docs](docs/motion/README.md).
+
+```bash
+npm run build
+npx playwright install chromium --only-shell
+npm run test:e2e
+```
+
+The end-to-end suite runs against the production preview at localhost:4173, using desktop and mobile Chromium.

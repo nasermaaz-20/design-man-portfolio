@@ -1,30 +1,52 @@
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(34px);
-  transition: opacity 0.75s ease-out, transform 0.75s ease-out;
-}
+/* Content is visible by default. Anime.js owns only initialized reveal layers. */
+.hero-title { font-size: clamp(2.1rem, 4.6vw, 4rem); }
+.hero-line-mask { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.hero-line { display: block; }
+.hero-rule, [data-reveal="line"] { transform-origin: left; }
+button:active:not(.project-trigger), a.inline-flex:active { scale: .98; }
 
-.scroll-reveal.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
+.page-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #00f5d4; transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.nav-indicator { position: absolute; left: 0; bottom: 1px; width: 1px; height: 1px; background: #00f5d4; transform-origin: left; opacity: 0; pointer-events: none; }
 
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-}
+.work-grid { display: grid; gap: 2.5rem 1.75rem; }
+.project-card { padding: 4px; }
+.project-image-shell { overflow: hidden; background: #05080f; }
+.project-image { transition: transform 600ms cubic-bezier(.16,1,.3,1); }
+.project-arrow { transition: transform 220ms cubic-bezier(.16,1,.3,1); }
+.project-image-bridge { position: fixed; left: 0; top: 0; z-index: 110; object-fit: cover; transform-origin: top left; pointer-events: none; }
+.glow-card { transition: border-color 200ms ease; }
+.service-card::before { content: ''; position: absolute; bottom: 0; left: 24px; right: 24px; height: 1px; background: #00f5d4; transform: scaleX(.12); transform-origin: left; transition: transform 400ms cubic-bezier(.16,1,.3,1); }
 
-.animate-in.stagger-children > * {
-  opacity: 1;
-  transform: translateY(0);
-}
+.process-grid { position: relative; display: grid; gap: 1.25rem; --process-progress: 1; }
+.process-step { position: relative; padding-left: 3.5rem; }
+.process-station { position: absolute; left: 0; top: 24px; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #00f5d44d; background: #06090d; color: #b0bec5; font: 12px 'JetBrains Mono',monospace; transition: color 220ms,border-color 220ms; }
+.process-station.is-active { color: #00f5d4; border-color: #00f5d4; }
+.process-rail { position: absolute; left: 19px; top: 44px; bottom: 44px; width: 2px; background: #00f5d426; }
+.process-progress { width: 100%; height: 100%; background: #00f5d4; transform: scaleY(var(--process-progress)); transform-origin: top; }
+.footer-rule { position: absolute; left: 0; top: -1px; width: 100%; height: 1px; background: linear-gradient(90deg,transparent,#00f5d4,transparent); transform-origin: left; }
+.cta-border { position: absolute; left: 0; top: 0; width: 100%; height: 1px; background: #00f5d4; pointer-events: none; }
 
-.animate-in.stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
-.animate-in.stagger-children > *:nth-child(3) { transition-delay: 0.16s; }
-.animate-in.stagger-children > *:nth-child(4) { transition-delay: 0.24s; }
-.animate-in.stagger-children > *:nth-child(5) { transition-delay: 0.32s; }
-.animate-in.stagger-children > *:nth-child(6) { transition-delay: 0.4s; }
+@media (min-width: 768px) {
+  .work-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .work-featured { grid-column: 1 / -1; width: min(100%, 1000px); margin-inline: auto; }
+}
+@media (min-width: 1024px) {
+  .process-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .process-step { padding: 0; display: flex; flex-direction: column; }
+  .process-station { position: relative; left: auto; top: auto; margin: 0 auto 24px; flex-shrink: 0; }
+  .process-rail { left: 12.5%; right: 12.5%; top: 19px; bottom: auto; height: 2px; width: auto; }
+  .process-progress { transform: scaleX(var(--process-progress)); transform-origin: left; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .glow-card:hover, .project-trigger:focus-visible .glow-card { border-color: #00f5d4b3; }
+  .project-trigger:hover .project-image, .project-trigger:focus-visible .project-image { transform: scale(1.03); }
+  .project-trigger:hover .project-arrow, .project-trigger:focus-visible .project-arrow { transform: translate(3px,-3px); }
+  .service-card:hover::before { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-station { border-color: #00f5d4; color: #00f5d4; }
+  .project-image, .project-arrow { transition: none; }
+}
 
 .scan-sweep::after {
   content: '';

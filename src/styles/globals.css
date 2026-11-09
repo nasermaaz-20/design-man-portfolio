@@ -19,8 +19,8 @@
   -webkit-user-drag: none;
 }
 
-@media (min-width: 768px) {
-  * {
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-ready, html.cursor-ready * {
     cursor: none !important;
   }
 }
@@ -28,7 +28,15 @@
 html {
   background: var(--color-bg);
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  scrollbar-gutter: stable;
 }
+
+html.lenis { height: auto; scroll-behavior: auto !important; }
+html.lenis-stopped { overflow: hidden; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid #00f5d4; outline-offset: 5px; }
+#main-content:focus { outline: none; }
 
 body {
   margin: 0;
@@ -43,16 +51,17 @@ body {
 
 .custom-cursor {
   position: fixed;
-  z-index: 100;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  left: 0;
+  top: 0;
+  z-index: 220;
+  width: 0;
+  height: 0;
+  visibility: hidden;
   pointer-events: none;
-  background: var(--color-cyan);
-  box-shadow: var(--glow-cyan);
-  transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
 }
+.cursor-ready .custom-cursor { visibility: visible; }
+.custom-cursor::before { content: ''; position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border: 1px solid #00f5d4; border-radius: 50%; background: #00f5d444; transition: transform 160ms,background-color 160ms; }
+.custom-cursor.is-interactive::before { transform: scale(2.4); background: #00f5d411; }
 
 button,
 a {

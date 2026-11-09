@@ -1,17 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { useReducedMotion } from './useMotionPreferences';
 
-export function useLenis() {
+export function useLenis(locked = false) {
+  const reduced = useReducedMotion();
+  const instance = useRef(null);
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (reduced) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
+      duration: 0.95,
       smoothWheel: true,
-      prevent: (node) => node.closest('[data-lenis-prevent]'),
+      anchors: true,
+      prevent: (node) => node.closest?.('[data-lenis-prevent]'),
     });
-
+    instance.current = lenis;
     let rafId = 0;
     const raf = (time) => {
       lenis.raf(time);
@@ -23,6 +26,21 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      instance.current = null;
     };
-  }, []);
+  }, [reduced]);
+
+  useEffect(() => {
+    if (locked) instance.current?.stop();
+    else instance.current?.start();
+    if (!locked) return;
+    const bodyOverflow = document.body.style.overflow;
+    const htmlOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = bodyOverflow;
+      document.documentElement.style.overflow = htmlOverflow;
+    };
+  }, [locked, reduced]);
 }

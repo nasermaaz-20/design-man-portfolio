@@ -1,0 +1,129 @@
+{
+  "sourceBytes": 13490293,
+  "outputBytes": 6926097,
+  "reductionPercent": 48.7,
+  "pages": 31,
+  "pageWidth": 1440,
+  "pageHeight": 810,
+  "optimizedImages": 16,
+  "preservedAnnotations": 4,
+  "jpegQuality": 86,
+  "maximumImageDimension": 1920,
+  "textAndPageDimensionsVerified": true,
+  "originalSha256": "412aaf608b4d18f24797de8d34364f98689e8d608d16f899a6a75d984d75a76d",
+  "optimizedSha256": "b69e3f9aec728c6981f78f2e5daf2d8885af06ae6d0ae1b6c03cdb281d3f4d93",
+  "images": [
+    {
+      "object": 56,
+      "before": 520909,
+      "after": 176309,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "object": 64,
+      "before": 575197,
+      "after": 210999,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "object": 65,
+      "before": 780572,
+      "after": 271673,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "object": 78,
+      "before": 500922,
+      "after": 315337,
+      "width": 1920,
+      "height": 1200
+    },
+    {
+      "object": 89,
+      "before": 672451,
+      "after": 152480,
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "object": 97,
+      "before": 111409,
+      "after": 65878,
+      "width": 1920,
+      "height": 1072
+    },
+    {
+      "object": 110,
+      "before": 664252,
+      "after": 153802,
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "object": 111,
+      "before": 616056,
+      "after": 154959,
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "object": 116,
+      "before": 615095,
+      "after": 145612,
+      "width": 896,
+      "height": 1200
+    },
+    {
+      "object": 121,
+      "before": 486275,
+      "after": 85296,
+      "width": 896,
+      "height": 1200
+    },
+    {
+      "object": 122,
+      "before": 585103,
+      "after": 144669,
+      "width": 896,
+      "height": 1200
+    },
+    {
+      "object": 123,
+      "before": 683251,
+      "after": 158538,
+      "width": 896,
+      "height": 1184
+    },
+    {
+      "object": 171,
+      "before": 610600,
+      "after": 312887,
+      "width": 1072,
+      "height": 1920
+    },
+    {
+      "object": 172,
+      "before": 844728,
+      "after": 248299,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "object": 173,
+      "before": 560292,
+      "after": 158129,
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "object": 184,
+      "before": 1100337,
+      "after": 636645,
+      "width": 1920,
+      "height": 1920
+    }
+  ]
+}

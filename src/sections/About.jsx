@@ -18,27 +18,27 @@ export default function About() {
     <section id="about" className="relative bg-ink py-24">
       <div ref={ref} className="container-x scroll-reveal grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr]">
         <div>
-          <SectionLabel>About Me</SectionLabel>
-          <h2 className="font-orbitron text-4xl font-black uppercase leading-tight text-white md:text-5xl">
+          <div data-reveal><SectionLabel>About Me</SectionLabel></div>
+          <h2 data-reveal className="font-orbitron text-4xl font-black uppercase leading-tight text-white md:text-5xl">
             Design with <span className="text-neon">purpose.</span>
             <br />
             Create with <span className="text-neon">passion.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-steel">
+          <p data-reveal className="mt-6 max-w-xl text-lg leading-8 text-steel">
             I am Yaman Balkesh, a graphic designer with over 5 years of experience in branding, social media, packaging, and advertising. I turn ideas into powerful visuals that help brands stand out and grow.
           </p>
           <div className="mt-9 grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {badges.map(([value, label, Icon]) => (
-              <div key={label}>
+            {badges.map(([value, label, Icon], index) => (
+              <div data-reveal data-delay={index * 60} key={label}>
                 <Icon className="mb-3 text-neon" size={25} />
                 <p className="font-orbitron text-2xl font-black text-neon">{value}</p>
                 <p className="mt-1 text-sm leading-5 text-steel">{label}</p>
               </div>
             ))}
           </div>
-          <Button as="a" href="https://www.linkedin.com/in/yaman-balkesh" className="mt-9">More about me</Button>
+          <div data-reveal><Button as="a" href="https://www.linkedin.com/in/yaman-balkesh" className="mt-9">More about me</Button></div>
         </div>
-        <div className="hud-corners relative overflow-hidden border border-neon/20 bg-panel/70 p-3 shadow-cyanSm">
+        <div data-reveal="image" className="hud-corners relative overflow-hidden border border-neon/20 bg-panel/70 p-3 shadow-cyanSm">
           <img
             src={portrait}
             alt="Yaman Balkesh portrait"
