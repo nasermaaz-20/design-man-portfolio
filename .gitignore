@@ -3,6 +3,9 @@ dist
 test-results/
 playwright-report/
 tmp/
+.wrangler/
+.dev.vars
+.dev.vars.*
 .env
 .env.local
 npm-debug.log*

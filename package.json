@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
+    "deploy": "wrangler deploy --config wrangler.jsonc",
+    "deploy:check": "wrangler deploy --config wrangler.jsonc --dry-run",
     "preview": "vite preview --host 127.0.0.1",
     "test:e2e": "playwright test",
     "test:bootstrap": "node --test tests/intro.node.mjs",
@@ -30,6 +32,7 @@
     "pdf-lib": "^1.17.1",
     "postcss": "^8.5.12",
     "tailwindcss": "^3.4.19",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "wrangler": "4.158.0"
   }
 }

@@ -36,6 +36,7 @@
 - [Architecture & UX Decisions](#architecture--ux-decisions)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [Deploy to Cloudflare Workers](#deploy-to-cloudflare-workers)
 - [Deploy to GitHub Pages](#deploy-to-github-pages)
 - [Customization](#customization)
 - [Author & Contact](#author--contact)
@@ -200,9 +201,23 @@ The optimized output will be in the `dist/` folder.
 
 ### Automated build verification
 
-GitHub Actions installs the locked dependencies with `npm ci` and runs `npm run build` on pushes and pull requests to `main`. You can inspect the latest result using the build badge above. This checks production bundling; it does not replace interaction or accessibility tests.
+GitHub Actions installs the locked dependencies with `npm ci`, runs `npm run build`, and validates the Cloudflare configuration with `npm run deploy:check` on pushes and pull requests to `main`. You can inspect the latest result using the build badge above. This checks production bundling and deployment preparation without publishing; it does not replace interaction or accessibility tests.
 
 ---
+
+## Deploy to Cloudflare Workers
+
+The existing `design-man` Worker serves Vite's `dist/` output as static assets using `wrangler.jsonc`. Keep the project root as the repository root.
+
+| Cloudflare Workers Build setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npm run deploy` |
+| Root directory | `.` (repository root) |
+| Assets directory | `dist` (set in `wrangler.jsonc`) |
+| Node version | `24` |
+
+Validate locally with `npm run build` followed by `npm run deploy:check`. Never pass `vite.config.js` to Wrangler's `--config` option. See [Cloudflare setup and troubleshooting](docs/cloudflare.md) for authentication, preview builds and routing checks.
 
 ## Deploy to GitHub Pages
 
