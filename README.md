@@ -296,7 +296,7 @@ Connect your GitHub repo to [Vercel](https://vercel.com) or [Netlify](https://ne
 | Section copy | `src/sections/*.jsx` |
 | Colors & theme | `tailwind.config.js` + `src/styles/globals.css` |
 | Social links & contact | `src/sections/Hero.jsx`, `src/sections/FinalCTA.jsx` |
-| SEO title & description | `index.html` |
+| SEO & social previews | `index.html`, `portfolio/index.html` — [maintenance and verification](docs/social-preview.md) |
 
 ---
 
